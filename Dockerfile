@@ -15,7 +15,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем код
-COPY server.py streamer.py ./
+COPY main.py streamer.py ./
 
 # Порты для камер
 EXPOSE 9996 9997 9998 9999

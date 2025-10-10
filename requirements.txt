@@ -1,2 +1,4 @@
 aiohttp
-ffmpeg-python
+#ffmpeg-python
+uvloop
+python-dotenv
