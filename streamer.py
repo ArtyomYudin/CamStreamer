@@ -35,7 +35,7 @@ class VideoStreamer:
             "-bf", "0",
             "-f", "mpegts",
             "-fflags", "+genpts",
-            "-mpegts_copyts", "1",  # для синхронизации
+            "-mpegts_copyts", "1",
             "-"
         ]
 
@@ -72,13 +72,15 @@ class VideoStreamer:
     async def _run_ffmpeg(self):
         restart_delay = 3
         while self._running:
-            if not self.clients:
-                await self._stop_ffmpeg()
-                while not self.clients and self._running:
-                    await asyncio.sleep(0.5)
-                if not self._running:
-                    break
+            # Ждём, пока появится хотя бы один клиент
+            while not self.clients and self._running:
+                await asyncio.sleep(0.5)
 
+            # Если вышли по причине остановки, выходим
+            if not self._running:
+                break
+
+            logger.info(f"[{self.name}] Начинаем запуск ffmpeg...")
             try:
                 cmd = self._build_ffmpeg_cmd()
                 logger.info(f"[{self.name}] Запуск ffmpeg...")
@@ -105,6 +107,7 @@ class VideoStreamer:
             finally:
                 await self._stop_ffmpeg()
 
+            # Если всё ещё работаем — ждём перед перезапуском
             if self._running:
                 logger.info(f"[{self.name}] Перезапуск через {restart_delay} сек...")
                 await asyncio.sleep(restart_delay)
@@ -142,5 +145,7 @@ class VideoStreamer:
         return True
 
     def remove_client(self, ws):
+        was_empty = len(self.clients) == 0
         self.clients.discard(ws)
         logger.info(f"[{self.name}] Клиент отключён ({len(self.clients)})")
+        # Не нужно ничего делать — основной цикл сам проверит наличие клиентов
