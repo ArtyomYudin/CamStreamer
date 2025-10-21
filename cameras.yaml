@@ -1,0 +1,132 @@
+cameras:
+  floor2_left_wing:
+    name: "2 эт. левое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.11:7070"
+    location: "Second Floor Left Wing"
+    max_clients: 5
+
+  floor2_right_wing_scrapped:
+    name: "2 эт. правое крыло(списан)"
+    rtsp_url: "rtsp://video:123456@172.20.58.12:7070"
+    location: "Second Floor Right Wing (Scrapped)"
+    max_clients: 5
+
+  floor1_left_wing:
+    name: "1 эт. левое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.13:7070"
+    location: "First Floor Left Wing"
+    max_clients: 5
+
+  basement_left_wing:
+    name: "цоколь левое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.14:7070"
+    location: "Basement Left Wing"
+    max_clients: 5
+
+  basement_right_wing:
+    name: "цоколь правое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.15:7070"
+    location: "Basement Right Wing"
+    max_clients: 5
+
+  central_entrance:
+    name: "центральный вход"
+    rtsp_url: "rtsp://video:123456@172.20.58.16:7070"
+    location: "Central Entrance"
+    max_clients: 5
+
+  floor1_right_wing:
+    name: "1 эт. правое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.17:7070"
+    location: "First Floor Right Wing"
+    max_clients: 5
+
+  floor2_center:
+    name: "2 этаж центр"
+    rtsp_url: "rtsp://video:123456@172.20.58.18:7070"
+    location: "Second Floor Center"
+    max_clients: 5
+
+  auto_warehouse:
+    name: "автосклад"
+    rtsp_url: "rtsp://video:123456@172.20.58.19:7070"
+    location: "Auto Warehouse"
+    max_clients: 1
+
+  black_entrance:
+    name: "черный вход"
+    rtsp_url: "rtsp://video:123456@172.20.58.20:7070"
+    location: "Black Entrance"
+    max_clients: 5
+
+  central_entrance_2:
+    name: "центральный вход 2"
+    rtsp_url: "rtsp://video:123456@172.20.58.21:7070"
+    location: "Central Entrance 2"
+    max_clients: 5
+
+  floor1_left_wing_panel:
+    name: "1 эт. левое крыло щит"
+    rtsp_url: "rtsp://video:123456@172.20.58.22:7070"
+    location: "First Floor Left Wing Panel"
+    max_clients: 5
+
+  street_entrance:
+    name: "вход улица"
+    rtsp_url: "rtsp://video:123456@172.20.58.23:7070"
+    location: "Street Entrance"
+    max_clients: 5
+
+  server_room:
+    name: "серверная"
+    rtsp_url: "rtsp://video:123456@172.20.58.24:7070"
+    location: "Server Room"
+    max_clients: 42
+
+  basement_entrance:
+    name: "вход в цокольный этаж"
+    rtsp_url: "rtsp://video:123456@172.20.58.25:7070"
+    location: "Basement Entrance"
+    max_clients: 5
+
+  corridor_right_wing:
+    name: "коридор правое крыло"
+    rtsp_url: "rtsp://video:123456@172.20.58.27:7070"
+    location: "Second Floor Left Wing Stairs"
+    max_clients: 5
+
+  rso_basement:
+    name: "РСО цок.этаж"
+    rtsp_url: "rtsp://video:123456@172.20.58.28:7070"
+    location: "Second Floor Left Wing Stairs"
+    max_clients: 5
+
+  black_entrance_street:
+    name: "Черный вход улица"
+    rtsp_url: "rtsp://video:123456@172.20.58.29:7070"
+    location: "Black Entrance Street"
+    max_clients: 14
+
+  work_hall:
+    name: "рабочий зал"
+    rtsp_url: "rtsp://video:123456@172.20.58.30:7070"
+    location: "Work Hall"
+    max_clients: 5
+
+  waiting_hall:
+    name: "зал ожидания"
+    rtsp_url: "rtsp://video:123456@172.20.58.31:7070"
+    location: "Waiting Hall"
+    max_clients: 10
+
+  foyer_reception:
+    name: "Фойе ресепшн"
+    rtsp_url: "rtsp://video:123456@172.20.58.32:7070"
+    location: "Foyer Reception"
+    max_clients: 5
+
+  floor2_left_wing_stairs:
+    name: "2 эт. левое крыло лестн"
+    rtsp_url: "rtsp://video:123456@172.20.58.33:7070"
+    location: "Second Floor Left Wing Stairs"
+    max_clients: 5
