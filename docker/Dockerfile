@@ -5,6 +5,10 @@ LABEL authors="Artyom Yudin"
 ENV TZ="Europe/Moscow" \
     PYTHONUNBUFFERED=1
 
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install ffmpeg -y && \
+    apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
 WORKDIR /app
 
 # Сначала зависимости

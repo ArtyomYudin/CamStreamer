@@ -3,13 +3,15 @@ import os
 from aiohttp import web
 from app.streamer import VideoStreamer
 import yaml
+from pathlib import Path
 
 from app.logger import logger
 
 
+# Путь к cameras.yaml в той же папке, где main.py
+CAMERAS_FILE = Path(__file__).parent / "cameras.yaml"
 # Настройка камер
-
-with open("app/cameras.yaml") as f:
+with open(CAMERAS_FILE) as f:
     config = yaml.safe_load(f)
 
 CAMERAS = {}
