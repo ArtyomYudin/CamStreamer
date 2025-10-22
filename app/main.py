@@ -1,7 +1,7 @@
 import asyncio
 import os
 from aiohttp import web
-from streamer import VideoStreamer
+from app.streamer import VideoStreamer
 import yaml
 
 from app.logger import logger
