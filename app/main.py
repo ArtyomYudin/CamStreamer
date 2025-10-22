@@ -103,7 +103,7 @@ if __name__ == "__main__":
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
-    SERVER_PORT = int(os.getenv("SERVER_PORT", "8080"))
+    SERVER_PORT = int(os.getenv("SERVER_PORT", "80"))
     SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
 
     runner = web.AppRunner(app)

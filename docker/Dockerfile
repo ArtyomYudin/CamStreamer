@@ -17,6 +17,6 @@ COPY . /app
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["python", "-m", "app.main"]
