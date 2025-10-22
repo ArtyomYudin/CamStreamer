@@ -1,31 +1,15 @@
 import asyncio
-import logging
 import os
 from aiohttp import web
-from dotenv import load_dotenv
 from streamer import VideoStreamer
-# Загрузка из YAML
 import yaml
 
+from app.logger import logger
 
-load_dotenv()
 
-logging.basicConfig(
-    level=logging.INFO if not os.getenv("DEBUG") else logging.DEBUG,
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
-)
-logger = logging.getLogger("VideoServer")
+# Настройка камер
 
-# # Настройка камер
-# CAMERAS = {
-#     9999: f"rtsp://{os.getenv('CAM_USER', 'video')}:{os.getenv('CAM_PASS', '123456')}@172.20.58.23:7070",
-# }
-#
-# NAMES = {
-#     9999: "MainCam",
-# }
-
-with open("cameras.yaml") as f:
+with open("app/cameras.yaml") as f:
     config = yaml.safe_load(f)
 
 CAMERAS = {}
@@ -120,11 +104,12 @@ if __name__ == "__main__":
     asyncio.set_event_loop(loop)
 
     SERVER_PORT = int(os.getenv("SERVER_PORT", "8080"))
+    SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
 
     runner = web.AppRunner(app)
     try:
         loop.run_until_complete(runner.setup())
-        site = web.TCPSite(runner, "0.0.0.0", SERVER_PORT)
+        site = web.TCPSite(runner, SERVER_HOST, SERVER_PORT)
         loop.run_until_complete(site.start())
         logger.info(f"🌐 WebSocket сервер слушает ПОРТ {SERVER_PORT}")
 
