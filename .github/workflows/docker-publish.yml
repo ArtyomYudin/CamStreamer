@@ -8,7 +8,7 @@ on:
 env:
 #  DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/it-support-portal-frontend  # ← замените my-app-name на желаемое имя образа
   REGISTRY: hanna.center-inform.ru
-  IMAGE_NAME: it-support-portal/frontend
+  IMAGE_NAME: it-support-portal/cam-streamer
 
 jobs:
   push_to_harbor:
