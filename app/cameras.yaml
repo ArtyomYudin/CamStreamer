@@ -5,8 +5,8 @@ cameras:
     location: "Second Floor Left Wing"
     max_clients: 5
 
-  floor2_right_wing_scrapped:
-    name: "2 эт. правое крыло(списан)"
+  floor2_right_wing:
+    name: "2 эт. правое крыло"
     rtsp_url: "rtsp://video:123456@172.20.58.12:7070"
     location: "Second Floor Right Wing (Scrapped)"
     max_clients: 5
