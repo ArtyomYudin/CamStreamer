@@ -92,7 +92,7 @@ async def start_streamers_background():
 
 def init_app():
     app = web.Application()
-    app.router.add_get('/{camera_id}', websocket_handler)
+    app.router.add_get('/ws/{camera_id}', websocket_handler)
     app.router.add_get('/stats', stats_handler)
     return app
 
