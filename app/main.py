@@ -90,9 +90,10 @@ async def start_streamers_background():
         logger.info(f"[{streamer.name}] Зарегистрирован (lazy start)")
 
 
-def init_app():
+def init_app(ws_url):
+    ws_path = f"{ws_url.rstrip('/')}/{{camera_id}}"
     app = web.Application()
-    app.router.add_get('/ws/{camera_id}', websocket_handler)
+    app.router.add_get(ws_path, websocket_handler)
     app.router.add_get('/stats', stats_handler)
     return app
 
@@ -101,12 +102,14 @@ if __name__ == "__main__":
     import uvloop
     uvloop.install()
 
-    app = init_app()
+    SERVER_PORT = int(os.getenv("SERVER_PORT", "8080"))
+    SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
+    SERVER_WS_URL = os.getenv("SERVER_WS_URL", "/vss/ws")
+
+    app = init_app(SERVER_WS_URL)
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
-    SERVER_PORT = int(os.getenv("SERVER_PORT", "8080"))
-    SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
 
     runner = web.AppRunner(app)
     try:
